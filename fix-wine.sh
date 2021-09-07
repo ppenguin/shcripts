@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
 WEXE=$(command -v wine64)
+WEXE=${WEXE:-$(command -v wine)}
+if [ -z "${WEXE}" ]; then
+    echo "FATAL: no wine executable found"
+    exit 1
+fi
 TMPREG=$(mktemp)
 
 cleanup() {
