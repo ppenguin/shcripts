@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -x
+
+for U in "$@"; do
+    sudo machinectl shell ${U}@.host ${SHELL} -c 'home-manager switch && nix-collect-garbage -d'
+done
