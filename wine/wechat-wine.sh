@@ -11,4 +11,7 @@ fi
 # FIXME: not working (fonts and colours?)
 
 export WINE_PREFIX=~/.deepinwine/Deepin-WeChat/
-${WINE} "${WINE_PREFIX}/drive_c/Program Files/Tencent/WeChat/WeChat.exe"
+# ${WINE} "${WINE_PREFIX}/drive_c/Program Files/Tencent/WeChat/WeChat.exe"
+# run with nixGL flake
+nix run --override-input nixpkgs nixpkgs/nixos-21.11 --impure github:guibou/nixGL -- ${WINE} "${WINE_PREFIX}/drive_c/Program Files/Tencent/WeChat/WeChat.exe"
+
