@@ -1,6 +1,8 @@
 #!/usr/bin/env sh
 
-MIDS=$(xinput list | sed -n 's/.*[Mm]*ouse.*id=\([0-9]*\).*/\1/p')
+# MIDS=$(xinput list | sed -n 's/.*[Mm]*ouse.*id=\([0-9]*\).*/\1/p')
+MIDS=$(xinput list | sed -n 's/.*\([Mm]*ouse\|[Tt]ouchpad\).*id=\([0-9]*\).*/\2/p')
+
 
 for MID in ${MIDS}; do
     MSEPROP=$(xinput list-props ${MID} | sed -n 's/.*atural.*crolling.*nabled\s*(\([0-9]*\)).*/\1/p')
